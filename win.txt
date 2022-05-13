@@ -1,0 +1,8 @@
+# Configurar o dns para o ip do servidor samba
+    - desmarcar ip6
+    - ip 192.168.1.110/24
+    - gateway padrao da rede
+    - Dns (ip do servidor)
+
+# Ingressar maquina no domain
+    - "membro de"

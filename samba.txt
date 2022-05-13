@@ -1,0 +1,43 @@
+#Samba 4 no Debian 11
+
+vim /etc/network/interface
+
+Adicionar repositorio non free
+deb http://ftp.deian.org/debian/ name-distro main contrib non-free
+
+apt install samba smbclient krb5-user dnsutils winbind
+
+"na instalçao do kerberos informar o dominio"
+exemplo.com
+"servidor kerberos"
+localhost
+"servidor administrativo kerberos "
+localhost
+
+cp /etc/samba/smb.conf /etc/samba/smb.conf.bkp
+rm /etc/samba/smb.conf
+
+cat /etc/krb5.conf
+"verificar no inicio 'realm' está aparecendo o dominio configurado
+
+# apos executar o comando abaixo, digitar o dominio, trocar apenas o dns externo, e senha de Adminitrador
+samba-tool domain provision
+    exemplo.com
+    
+reboot
+
+smbclient -L localhost -U Adminitrator
+
+vim /etc/resolv.conf
+    nameserver 127.0.0.1
+
+dig -t srv _ldap.tcp.exemplo.com
+dig -t srv _kerberos.tcp.exemplo.com
+dig -t a servidor.exemplo.com
+
+vim /usr/share/samba/setup/krb5.conf
+    "default_realm = EXEMPLO.COM"
+
+cp /usr/share/samba/setup/krb5.conf /etc/
+
+kinit Adminitrator
