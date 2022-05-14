@@ -3,7 +3,7 @@ import telnetlib
 import time
 from pysnmp.hlapi import *
 
-switches = ["192.168.0.111", '192.168.0.112', '192.168.0.113', '192.168.0.114']
+switches = ["192.168.122.111", '192.168.122.112', '192.168.122.113', '192.168.122.114']
 vlans= ([2, 'Alunos'], [3, 'Professores'], [4, 'Tecnicos'])
 
 user = input("Digite o seu usuario: ")
@@ -23,7 +23,7 @@ for switch in switches:
         tn.write(b"enable\n")
         tn.write(b"conf t\n")
         tn.write(b"vlan " + str(vlan[0]).encode('ascii') + b"\n")
-        tn.write(b"vlan " + str(vlan[1]).encode('ascii') + b"\n")
+        tn.write(b"name " + str(vlan[1]).encode('ascii') + b"\n")
         tn.write(b"exit\n")
         tn.write(b"do wr\n")
         tn.write(b"end\n")
@@ -32,7 +32,7 @@ for switch in switches:
     time.sleep(5)
 
 # Configurando SNMP no roteadores
-router=([100,"192.168.0.101","R1"], [101,'192.168.0.102',"R2"], [103,"192.168.0.103","R3"])
+router=([100,"192.168.122.101","R1"], [101,'192.168.122.102',"R2"], [103,"192.168.122.103","R3"])
 
 for rt in router:
     tn = telnetlib.Telnet(rt[1])

@@ -2,6 +2,8 @@
 enable
 conf t
 hostname r1
+ip domain name ifpb.edu.br
+crypto key generate rsa
 username vinicius priv 15 secret melo
 line vty 0 4
 login local
@@ -18,6 +20,8 @@ end
 enable
 conf t
 hostname r2
+ip domain name ifpb.edu.br
+crypto key generate rsa
 username vinicius priv 15 secret melo
 line vty 0 4
 login local
@@ -34,6 +38,8 @@ end
 enable
 conf t
 hostname r3
+ip domain name ifpb.edu.br
+crypto key generate rsa
 username vinicius priv 15 secret melo
 line vty 0 4
 login local
@@ -50,6 +56,8 @@ end
 enable
 conf t
 hostname sw1
+ip domain name ifpb.edu.br
+crypto key generate rsa
 username vinicius priv 15 secret melo
 line vty 0 4
 login local
@@ -66,6 +74,8 @@ end
 enable
 conf t
 hostname sw2
+ip domain name ifpb.edu.br
+crypto key generate rsa
 username vinicius priv 15 secret melo
 line vty 0 4
 login local
@@ -82,6 +92,8 @@ end
 enable
 conf t
 hostname sw3
+ip domain name ifpb.edu.br
+crypto key generate rsa
 username vinicius priv 15 secret melo
 line vty 0 4
 login local
@@ -98,6 +110,8 @@ end
 enable
 conf t
 hostname sw4
+ip domain name ifpb.edu.br
+crypto key generate rsa
 username vinicius priv 15 secret melo
 line vty 0 4
 login local
