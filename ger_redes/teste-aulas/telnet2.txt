@@ -51,6 +51,7 @@ enable
 conf t
 hostname sw1
 username vinicius priv 15 secret melo
+no username marcos
 line vty 0 4
 login local
 transport input all
