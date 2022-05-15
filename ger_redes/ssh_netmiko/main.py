@@ -2,7 +2,7 @@ from netmiko import ConnectHandler
 from pysnmp.hlapi import *
 
 
-"""
+
 # 4 Automação da Criação de VLANs com Netmiko
 vlans= [(2, 'Alunos'), (3, 'Professores'), (4, 'Tecnicos')]
 
@@ -45,7 +45,7 @@ for switches in (SW1, SW2, SW3,SW4):
 connect.save_config()
 print(connect.find_prompt())
 connect.disconnect()
-"""
+
 # 5 Script para Habilitação do SNMP em todos os Roteadores
 # Conecanto com varios HOST
 
