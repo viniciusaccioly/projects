@@ -1,6 +1,7 @@
 # SERVIDOR Samba 4 no Debian 11
 # Link Juliano Ramos 
 # https://www.youtube.com/watch?v=E_GGg7Brx8Q
+# clona git com scripts do vaamonde  https://github.com/vaamonde/samba4-l2.git
 
 
 # vim /etc/network/interface
