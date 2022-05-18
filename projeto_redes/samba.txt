@@ -1,17 +1,16 @@
 # https://www.youtube.com/watch?v=I2b3_bBzBzU
 
-samba-tools
 vim /etc/network/interfaces
 
 $ sudo vim /etc/hosts
 
-127.0.0.1       localhost.localdomain           localhost
-127.0.1.1       zer01ti.zer01ti.intra           z1tsp01sh01
-192.168.18.10   z1tsp01sh01.zer01ti.intra       z1tsp01sh01
+127.0.0.1       localhost
+127.0.1.1       servidorSmb.empresa.local           servidorSmb
+192.168.0.100   servidorSmb.empresa.local           servidorSmb
 
 $ sudo vim /etc/hostname
 
-Z1TSP01SH01.ZER01TI.INTRA
+servidorSmb
 
 vim /etc/resolv.conf
 sudo apt install autoconf bind9utils bison debhelper dnsutils docbook-xml
@@ -19,16 +18,12 @@ docbook-xsl flex gdb libjansson-dev libacl1-dev libaio-dev libarchive-dev libatt
 
 reinicia o servidor
 
-# $ sudo apt install samba krb5-user winbind libnss-winbind smbclient ldap-utils acl attr ntp
-$ sudo apt install samba krb5-conf krb5-user winbind libnss-winbind smbclient ldap-utils acl attr ntp
+$ sudo apt install samba krb5-user winbind libnss-winbind smbclient ldap-utils acl attr ntp
+$ sudo apt install samba krb5-conf winbind smbclient
 
 Provisionar e iniciar o DOMÍNIO:
 
-# sudo systemctl stop smbd.service
 
-# sudo systemctl stop nmbd.service
-
-# sudo systemctl stop winbind.service
 
 Remover o smb.conf 
 

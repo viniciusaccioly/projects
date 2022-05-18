@@ -1,39 +1,63 @@
-# Samba 4 no Debian 11
+# SERVIDOR Samba 4 no Debian 11
 # Link Juliano Ramos 
 # https://www.youtube.com/watch?v=E_GGg7Brx8Q
 
 
-vim /etc/network/interface
+# vim /etc/network/interface
 
-# Adicionar repositorio non free
-deb http://ftp.deian.org/debian/ name-distro main contrib non-free
+# sudo vim /etc/hosts
 
-apt install samba smbclient krb5-user dnsutils winbind
+    127.0.0.1       localhost
+    127.0.1.1       servidorSmb.empresa.local           servidorSmb
+    192.168.0.100   servidorSmb.empresa.local           servidorSmb
 
-# "na instalçao do kerberos informar o dominio"
-exemplo.com
+# sudo vim /etc/hostname
+    servidorSmb
+
+# vim /etc/resolv.conf
+    nameserver 127.0.0.1
+
+# Adicionar repositorio contrib e non-free /etc/apt/source.list
+    deb http... main contrib non-free
+
+# Instalação dos pacotes 
+    apt install samba smbclient krb5-user dnsutils winbind
+
+# "na instalçao do kerberos informar o dominio" 
+####    obs: usando como novo dominio titech.intra
+    empresa.local
 # "servidor kerberos"
-localhost
+    servidorSmb.empresa.local
 # "servidor administrativo kerberos "
-localhost
+    servidorSmb.empresa.local
 
-cp /etc/samba/smb.conf /etc/samba/smb.conf.bkp
-rm /etc/samba/smb.conf
+# mv /etc/samba/smb.conf /etc/samba/smb.conf.bkp
 
-cat /etc/krb5.conf
-# "verificar no inicio 'realm' está aparecendo o dominio configurado
+# apos executar o comando abaixo, digitar o dominio, trocar apenas o dns externo, e senha de Adminitrador 
 
-# apos executar o comando abaixo, digitar o dominio, trocar apenas o dns externo, e senha de Adminitrador
-samba-tool domain provision
+# samba-tool domain provision
     exemplo.com
+
     
 reboot
 
+cp /var/lib/samba/private/krb5.conf /etc/
+
+
+# sudo systemctl stop smbd nmbd winbind
+# sudo systemctl disable smbd nmbd winbind
+
+# systemctl unmask samba-ad-dc.service
+# systemctl start samba-ad-dc.service
+# systemctl enable samba-ad-dc.service
+
+
+# "verificar no inicio 'realm' está aparecendo o dominio configurado
+    cat /etc/krb5.conf
+
 smbclient -L localhost -U Adminitrator
 
-vim /etc/resolv.conf
-    nameserver 127.0.0.1
-
+"""
 dig -t srv _ldap.tcp.exemplo.com
 dig -t srv _kerberos.tcp.exemplo.com
 dig -t a servidor.exemplo.com
@@ -43,7 +67,7 @@ vim /usr/share/samba/setup/krb5.conf
 
 cp /usr/share/samba/setup/krb5.conf /etc/
 
-kinit Adminitrator
+kinit Adminitrator"""
 
 
 # Criação dos usuarios
@@ -54,9 +78,10 @@ samba-tool user create financeiro
 # expirar senha com 7 dias
 samba-tool user setexpiry financeiro --days=7
 
-
-# Ativando recurso RSAT no windows 
-https://www.minitool.com/news/install-rsat-windows-11-10.html
+# Criação grupos
+samba-tool group listmembers "Domain Users"
+samba-tool group add financeiro
+samba-tool group addmembers financeiro vinicius
 
 # Adicionando unidade organizacional e vinculando usuario
 samba-tool group add "nome do grupo" "user"
@@ -70,10 +95,10 @@ samba-tool group listmembusers "Domain Users"
     comment = Pasta dos Perfis dos Usuários
     path = /arquivos/empresa/usuarios/profiles
     read only = No
-    store dos attibutes = Yes
+    store dos attributes = Yes
     create mask = 0600
     directory mask = 0700
-    profiles acl = Yes
+    profile acls = Yes
     csc policy = disable
 
 smbcontroll all reload-config
@@ -81,7 +106,10 @@ chmod 1770 /arquivos/empresa/usuarios/profiles
 chgrp "Domain Users" /arquivos/empresa/usuarios/profiles
 
 
-
+___________________________________________________________________________________
+# CLIENTE WINDOWS
+# Ativando recurso RSAT no windows cliente
+https://www.minitool.com/news/install-rsat-windows-11-10.html
 
 # no windows rsat
 Perfil do usuario
