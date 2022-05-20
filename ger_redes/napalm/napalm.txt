@@ -1,0 +1,25 @@
+pip3 install napalm
+
+
+import napalm
+import json
+
+# Use the ap propriate net work driver to connect to the device:
+driver = napalm.get_network_driver("ios")
+
+# Connect :
+device = driver (
+hostname=" 192.168.1.101 " ,
+username=" ruan " ,
+password=" gomes " ,
+optional_args={"port" : 22} ,
+)
+
+
+
+print ( " Opening ... " )
+device.open()
+output = device.get_facts()
+output_dict= json.loads(output)
+print (output_dict)
+print ("Uptime: " , output_dict["uptime"])

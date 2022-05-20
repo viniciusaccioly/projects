@@ -12,9 +12,7 @@ no shut
 exit
 ip route 0.0.0.0 0.0.0.0 192.168.122.1
 ip domain name ifpb.edu.br
-crypto key generate rsa
-
-no ip ssh ver
+crypto key generate rsa general-keys modulus 1024
 ip ssh version 2
 do wr
 end
@@ -33,9 +31,7 @@ no shut
 exit
 ip route 0.0.0.0 0.0.0.0 192.168.122.1
 ip domain name ifpb.edu.br
-crypto key generate rsa
-
-no ip ssh ver
+crypto key generate rsa general-keys modulus 1024
 ip ssh version 2
 do wr
 end
@@ -54,9 +50,7 @@ no shut
 exit
 ip route 0.0.0.0 0.0.0.0 192.168.122.1
 ip domain name ifpb.edu.br
-crypto key generate rsa
-
-no ip ssh ver
+crypto key generate rsa general-keys modulus 1024
 ip ssh version 2
 do wr
 end
@@ -75,9 +69,7 @@ no shut
 exit
 ip route 0.0.0.0 0.0.0.0 192.168.122.1
 ip domain name ifpb.edu.br
-crypto key generate rsa
-
-no ip ssh ver
+crypto key generate rsa general-keys modulus 1024
 ip ssh version 2
 do wr
 end
@@ -96,9 +88,7 @@ no shut
 exit
 ip route 0.0.0.0 0.0.0.0 192.168.122.1
 ip domain name ifpb.edu.br
-crypto key generate rsa
-
-no ip ssh ver
+crypto key generate rsa general-keys modulus 1024
 ip ssh version 2
 do wr
 end
@@ -117,9 +107,7 @@ no shut
 exit
 ip route 0.0.0.0 0.0.0.0 192.168.122.1
 ip domain name ifpb.edu.br
-crypto key generate rsa
-
-no ip ssh ver
+crypto key generate rsa general-keys modulus 1024
 ip ssh version 2
 do wr
 end
@@ -138,9 +126,7 @@ no shut
 exit
 ip route 0.0.0.0 0.0.0.0 192.168.122.1
 ip domain name ifpb.edu.br
-crypto key generate rsa
-
-no ip ssh ver
+crypto key generate rsa general-keys modulus 1024
 ip ssh version 2
 do wr
 end
