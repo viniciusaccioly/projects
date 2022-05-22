@@ -16,9 +16,15 @@ transport input ssh
 ip domain name example.netacad.com
 crypto key generate rsa modulus 2048
 username cisco priv 15 password cisco123!
-interface GigabitEthernet0/0/1
+interface GigabitEthernet0/0
 description Link to PC
-ip address 192.168.1.1 255.255.255.0
+ip address 192.168.122.100 255.255.255.0
 no shutdown
-ip dhcp excluded-address 192.168.1.1 192.168.1.10
+ip dhcp excluded-address 192.168.122.100 192.168.122.110
 !Configure a DHCP server to assign IPv4 addressing to the CCNP VM
+ip dhcp pool LAN
+network 192.168.122.0 /24
+default-router 192.168.122.100
+domain-name example.netacad.com
+end
+copy run start
