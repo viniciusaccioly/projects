@@ -1,6 +1,5 @@
 R1#sh run
 Building configuration...
-
   
 Current configuration : 4012 bytes
 !

@@ -1,4 +1,5 @@
 from netmiko import ConnectHandler
+<<<<<<< HEAD
 sshCli = ConnectHandler(
     device_type = 'cisco_ios',
     host = '192.168.122.100',
@@ -37,3 +38,19 @@ print("{}\n".format(sentConfig))
 
 output = sshCli.send_command("sh ip int br")
 print("{}\n".format(output))
+<<<<<<< HEAD
+=======
+=======
+
+sshCli = ConnectHandler(
+device_type = 'cisco_ios',
+host = '192.168.122.100',
+port = 22,
+username = 'cisco',
+password = 'cisco123!'
+)
+
+output = sshCli.send_command("sh ip int br")
+print(output)
+>>>>>>> d8fe467 (Pratica Cisco)
+>>>>>>> d94afaad475728b252e78b65371cd8ab75f2eb97
