@@ -12,6 +12,7 @@ import ssl
 import dtls
 
 # CoAPthon
+from coapthon import *
 from coapthon import defines
 from coapthon.server.coap import CoAP as CoAPServer
 from coapthon.messages.option import Option

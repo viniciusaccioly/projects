@@ -1,7 +1,7 @@
 # SERVIDOR Samba 4 no Debian 11
 # Link Juliano Ramos 
 # https://www.youtube.com/watch?v=E_GGg7Brx8Q
-# clona git com scripts do vaamonde  https://github.com/vaamonde/samba4-l2.git
+# clonar git com scripts do vaamonde  https://github.com/vaamonde/samba4-l2.git
 
 
 # vim /etc/network/interface
@@ -9,35 +9,37 @@
 # sudo vim /etc/hosts
 
     127.0.0.1       localhost
-    127.0.1.1       servidorSmb.empresa.local           servidorSmb
-    192.168.0.100   servidorSmb.empresa.local           servidorSmb
+    127.0.1.1       servidor.empresa.intra           servidor
+    192.168.0.200   servidor.empresa.intra           servidor
 
 # sudo vim /etc/hostname
-    servidorSmb
+    servidor
 
 # vim /etc/resolv.conf
     nameserver 127.0.0.1
 
 # Adicionar repositorio contrib e non-free /etc/apt/source.list
     deb http... main contrib non-free
+    sed -i 's/$/ contrib non-free/g' /etc/apt/sources.list
 
 # Instalação dos pacotes 
     apt install samba smbclient krb5-user dnsutils winbind
 
 # "na instalçao do kerberos informar o dominio" 
 ####    obs: usando como novo dominio titech.intra
-    empresa.local
+    empresa.intra
 # "servidor kerberos"
-    servidorSmb.empresa.local
+    servidor.empresa.intra
 # "servidor administrativo kerberos "
-    servidorSmb.empresa.local
+    servidor.empresa.intra
 
 # mv /etc/samba/smb.conf /etc/samba/smb.conf.bkp
 
 # apos executar o comando abaixo, digitar o dominio, trocar apenas o dns externo, e senha de Adminitrador 
 
 # samba-tool domain provision
-    exemplo.com
+    empresa.intra
+
 
     
 reboot
@@ -59,9 +61,9 @@ cp /var/lib/samba/private/krb5.conf /etc/
 smbclient -L localhost -U Adminitrator
 
 """
-dig -t srv _ldap.tcp.exemplo.com
-dig -t srv _kerberos.tcp.exemplo.com
-dig -t a servidor.exemplo.com
+dig -t srv _ldap.tcp.empresa.intra
+dig -t srv _kerberos.tcp.empresa.intra
+dig -t a servidor.empresa.intra
 
 vim /usr/share/samba/setup/krb5.conf
     "default_realm = EXEMPLO.COM"
