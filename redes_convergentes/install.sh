@@ -15,4 +15,12 @@ sudo pip3 install aiocoap
 sudo pip3 install python3-dtls
 sudo pip3 install coapthon
 
-sudo ln -s /usr/lib/x86_64-linux-gnu/libcrypto.so.1.0.0 /usr/lib/libcrypto.so.1.0.0
+
+# Entrar no  /usr/local/lib/python3.10/dist-packages/aiocoap/util/asyncio/recvmsg.py 
+# e comentar a função "del"  na linha 96
+#    def __del__(self):
+#        if self.__sock is not None:
+#            self.close()
+
+
+#https://meet.google.com/bfa-ompz-ubk
