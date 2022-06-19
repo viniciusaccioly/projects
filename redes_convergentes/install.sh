@@ -2,7 +2,8 @@
 sudo apt install vim screen htop cmake
 
 #Intalar o ambiente em python
-sudo apt install virtualenv python-all-dev python3-pip
+sudo apt install virtualenv python-all-dev python3-pip python-pip
+
 
 #Intalar a biblioteca CoAP em python
 
@@ -11,7 +12,8 @@ sudo pip3 install aiocoap
 #Para executar o servidor CoAP
 
 #sudo pip install dtls
-sudo pip3 install python3-dtls coapthon
+sudo pip3 install python3-dtls
+sudo pip3 install coapthon
 
 
 # Entrar no /usr/local/lib/python3.X/dist-packages/aiocoap/util/asyncio/recvmsg.py 
