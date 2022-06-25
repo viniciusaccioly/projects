@@ -2,7 +2,7 @@ from xml.dom import minidom
 from rich import print
 import os
 
-with open("/home/vinicius/codes/projects/Exemplos-Python/25220521071914000113650010000308389841013502-nfe.xml", 'rw', encoding='utf-8') as f:
+with open("/home/vinicius/codes/projects/Exemplos-Python/25220521071914000113650010000308389841013502-nfe.xml", 'r', encoding='utf-8') as f:
     xml = minidom.parse(f)
     
     vBC = xml.getElementsByTagName("vBC")
