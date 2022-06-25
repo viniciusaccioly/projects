@@ -1,0 +1,123 @@
+# Verificando status do HD
+cmd
+wmic diskdrive get caption,status
+
+chkdsk /f /r
+
+# Verificando status do windows
+sfc /scannow
+
+DISM /Online /Cleanup-Image /RestoreHealth
+
+# 1 
+Configurações >> Sistema >> Notificações e ações 
+(desativar  Obter dicas e Mostrar exeperiencia)
+# 2
+Gerenciador de Dispositivos > Dispositivos do Sistema
+Botao direito nos Intel
+
+#3
+Gerenciador de Dispositivos > Dispositivos do Sistema
+Controlador Ide ATA >> Propriedades >> Driver >> Detalhes "Caminho da instancia"
+copiar a chave
+
+ir no regedit 
+"HKEy_LOCAL_MACHINE\SYSTEM\CURRENTCONTROLSET\ENUM\PCI\<CHAVE ANOTADA>\DEVICE PARAMETERS\Interrupt Management\MessageSignaledInterruptProperties"
+MSISuported de 1 para 0
+
+#4
+Sistemas >> Configurações Avançadas >> Configurações >> Avançadas >> Alterar 
+Marcar 
+    "Gerenciamento..."
+    Tamanho Gerenciado pelo sistama
+
+# 5
+Serviços >> Windows Search " Parar o Serviço"
+remover o arquivo
+C:\ProgramData\Microsoft\Search\Data\Applications\Windows\Windows.edb
+
+#6 
+Serviços >> SuperFetch " Parar o Serviço"
+remover os arquivos
+C:\Windows\Prefetch\*
+
+# 7
+Serviços >> exeperiencia e telemetria de usuario conectado " desativar o Serviço"
+
+# 8
+chrome >> Configurações "flash" >> configurações de conteudo >> desclique a primeira opção
+
+# 9
+CMD (admin) >> WPR - cancel
+wusa /uninstall /kb:3201845
+
+# 10
+desativar  as tarefeas
+Agendador de tarefas >> Biblioteca do Agendador >> Microsoft >> Windows >> 
+
+Defrag\*
+Applications Expercience\*
+Autochk\*
+Customer Expercience Improvement\*
+DiskDiagnostic
+
+#11
+PowerShell (admin) 
+disable-MMAgent -mc
+
+#12
+regedit
+HKLM\System\ControlSet001\Services\Ndu\Start de 2 para 4
+
+# 13
+chrome >> Configurações "carre" >> Usar serviço de previsao para carregar.. >> desclique a opção
+
+#14
+c:\arquivos de programas(x86)\Skype\Phone
+Na aba segurança "Todos os pacotes do aplicativos" >> Gravar
+
+#15
+Serviços >> Politica de segurança e Diagnostico >> Parar
+
+#16
+Serviços >> Serviços de transferencia inteligente de fundo >> Desativar
+Serviços >> Windows Update >> Desativar
+
+#17
+Remover o antivirus (reiniciar)
+
+#18
+CMD (admin)
+wsreset
+
+# 19
+Energia >> Escolher plano de Energia >> Alto desempenho
+
+# 20
+mover para outra pasta
+c:Windows\INF\OEM*.*
+
+desinstala todos os perifericos
+
+# 21
+Adobe Reader >> Desativar cachear documentos PDF
+
+#22
+Compartilhamento Avançadas >> convidado ou publico (desativar descoberta de rede)
+
+# 23
+C:
+Propriedades >> Compactar disco
+
+# 24
+Remover programas (Microsoft One Driver)
+
+# 25
+Chorme >> configurações >> redefinir
+
+# 26
+Desativar o Firewall
+Serviços >>> Firewall do Windows
+
+#27
+Troca do cabo sata
