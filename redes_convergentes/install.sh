@@ -23,20 +23,18 @@ sudo pip3 install coapthon
 #            self.close()
 
 
-#https://meet.google.com/bfa-ompz-ubk
-
 #https://github.com/chrysn/aiocoap link  a mais
 https://aiocoap.readthedocs.io/en/latest/installation.html
 
 apt install python3-dev build-essential autoconf
-ade "git+https://github.com/chrysn/aiocoap#egg=aiocoap[all]"
 
+#https://github.com/chrysn/aiocoap link a mais
+https://aiocoap.readthedocs.io/en/latest/installation.html
 
-
+git clone https://github.com/chrysn/aiocoap
+cd aiocoap
 
 #DTLS
 pip3 install --upgrade "aiocoap[all]"
-git clone https://github.com/chrysn/aiocoap
-cd aiocoap
-pip3 install --upgrade ".[all,docs]"
-ip3 install --upgr
+
+pip3 install --upgrade "git+https://github.com/chrysn/aiocoap#egg=aiocoap[all]"
