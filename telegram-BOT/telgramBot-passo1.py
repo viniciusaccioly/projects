@@ -1,3 +1,4 @@
+from cabecalho import *
 import telegram
 import requests
 import time
@@ -6,8 +7,7 @@ import os
 
 class TelegBot:
     def __init__(self):
-        token = '5367726074:AAH2d2dZejyvQB557mbg3akYLM9mHcUOWtc'
-        self.url_base = f'https://api.telegram.org/bot{token}/'
+        self.url_base = f'https://api.telegram.org/bot{api_key}/'
     # Iniciar o bot
     def iniciar(self):
         update_id = None
