@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Pos instalação Fedora
+echo -e "fastestmirror=true\ndeltarpm=true\nmax_parallel_downloads=20" | tee -a /etc/dnf/dnf.conf
+
 sudo dnf update
 
 # Adicionando repositorios
