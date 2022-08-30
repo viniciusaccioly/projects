@@ -7,7 +7,7 @@ VOTOS_CANDIDATOB = 0
 while True:
     # Apresentar os candidatos
     print('*'*25)
-    print(f'[on green]TOTAL BOLSONARO:[/]{VOTOS_BOLSONARO}{os.linesep}[on red]TOTAL CANDIDATOB[/]: {VOTOS_CANDIDATOB}')
+    print(f'[on green]TOTAL BOLSONARO[/]: {VOTOS_BOLSONARO}{os.linesep}[on red]TOTAL CANDIDATOB[/]: {VOTOS_CANDIDATOB}')
     print('*'*25)
     try:
         voto = int(input(f'Em qual candidato gostaria de votar?{os.linesep}1 - Bolsonaro{os.linesep}2 - CANDIDATOB{os.linesep}seu voto: '))
